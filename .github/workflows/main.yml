@@ -5,7 +5,7 @@ on:
     types: [published]
 
 env:
-  PROJECT_PATH: SimpleMimeMap.Core/SimpleMimeMap.Core.csproj
+  PROJECT_PATH: SimpleMime/SimpleMime.csproj
   PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}/output
   NUGET_SOURCE_URL: "'https://api.nuget.org/v3/index.json'"
 
