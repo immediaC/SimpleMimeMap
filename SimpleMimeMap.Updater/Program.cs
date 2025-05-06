@@ -12,7 +12,7 @@ var lines = dict
 
 var total = string.Join("\r\n", lines);
 
-var csPath = Path.Combine(AppContext.BaseDirectory, "../../../../SimpleMimeMap/SimpleMimeMap.cs");
+var csPath = Path.Combine(AppContext.BaseDirectory, "../../../../SimpleMimeMap.Core/SimpleMimeMap.cs");
 var csText = await File.ReadAllTextAsync(csPath);
 
 var pattern = @"(?<=// \[MAP START\]\s*\n)(.*?)(?=\s*// \[MAP END\])";

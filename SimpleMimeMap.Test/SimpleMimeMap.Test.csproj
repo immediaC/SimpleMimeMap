@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SimpleMimeMap\SimpleMimeMap.Core.csproj" />
+    <ProjectReference Include="..\SimpleMimeMap.Core\SimpleMimeMap.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
