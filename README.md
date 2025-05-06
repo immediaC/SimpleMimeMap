@@ -9,7 +9,7 @@ The dictionary representing the mapping is automatically populated based on [jsh
 ## Usage
 
 ```C#
-using SimpleMimeMap.Core;
+using SimpleMime;
 
 var mime = SimpleMimeMap.GetMimeType(".jpeg"); // "image/jpeg"
 
