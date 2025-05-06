@@ -4,12 +4,12 @@ Simple mapping between file extensions and mime types.
 The dictionary representing the mapping is automatically populated based on [jshttp mime-db](https://github.com/jshttp/mime-db).
 
 ## Install
-[ImmeduaC.SimpleMimeMap NuGet](https://www.nuget.org/packages/ImmediaC.SimpleMimeMap)
+[SimpleMimeMap NuGet](https://www.nuget.org/packages/SimpleMimeMap)
 
 ## Usage
 
 ```C#
-using SimpleMimeMap;
+using SimpleMimeMap.Core;
 
 var mime = SimpleMimeMap.GetMimeType(".jpeg"); // "image/jpeg"
 

@@ -1,4 +1,4 @@
-namespace SimpleMimeMap
+namespace SimpleMimeMap.Core
 {
     public static class SimpleMimeMap
     {
