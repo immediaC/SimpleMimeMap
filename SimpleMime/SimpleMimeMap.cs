@@ -1239,7 +1239,7 @@ namespace SimpleMime
         };
 
         /// <summary>
-        /// Returns the alphabetical first mime type for the provided extension
+        /// Returns the alphabetical first mime type for the provided extension, e.g. "image/jpeg"
         /// </summary>
         public static string GetMimeType(string filename)
         {
@@ -1248,7 +1248,7 @@ namespace SimpleMime
             return MimeTypesByExtension.TryGetValue(ext, out var mimeTypes) ? mimeTypes.First() : defaultMimeType;
         }
         /// <summary>
-        /// Returns the extension for the provided filename. Note that 
+        /// Returns the extension for the provided filename. Not the same as Path.GetExtension since if <paramref name="filename"/> does not contain a period, it is assumed to already be just the extension
         /// </summary>
         private static string? GetExt(string filename)
         {
@@ -1258,7 +1258,7 @@ namespace SimpleMime
         }
 
         /// <summary>
-        /// Return all mime types for the provided <paramref name="filename"/> in alphabetical order.
+        /// Return all mime types (e.g. "application/mp4", "video/mp4") for the provided <paramref name="filename"/> in alphabetical order.
         /// </summary>
         /// <param name="filename">Will be passed to Path.Get</param>
         /// <returns></returns>
@@ -1270,7 +1270,7 @@ namespace SimpleMime
         }
 
         /// <summary>
-        /// Return the first extension (not including the period) for the provided <paramref name="mimeType"/>. If there are no known extensions for the specified file type, empty string is returned.
+        /// Return the first extension (not including the period) for the provided <paramref name="mimeType"/>, e.g. "jpg". If there are no known extensions for the specified file type, empty string is returned.
         /// </summary>
         public static string GetExtension(string mimeType)
         {
@@ -1278,7 +1278,7 @@ namespace SimpleMime
         }
 
         /// <summary>
-        /// Return all matching extensions (not including the period) for the provided <paramref name="mimetype"/>. List will be empty if none match.
+        /// Return all matching extensions (not including the period) for the provided <paramref name="mimetype"/>, e.g. "jpeg", "jpg", "jpe". List will be empty if none match.
         /// </summary>
         public static List<string> GetExtensions(string mimetype)
         {
@@ -1286,7 +1286,7 @@ namespace SimpleMime
         }
 
         /// <summary>
-        /// Returns all extensions (not including period) for mime types starting with <paramref name="mimeTypePrefix"/>
+        /// Returns all extensions (not including period) for mime types starting with <paramref name="mimeTypePrefix"/>. E.g. "jpeg", "jpg", "jpe", etc.
         /// </summary>
         public static List<string> GetExtensionsForMimeTypePrefix(string mimeTypePrefix)
         {
@@ -1297,7 +1297,7 @@ namespace SimpleMime
         }
 
         /// <summary>
-        /// Returns all extensions (not including period) for image mime types.
+        /// Returns all extensions (not including period) for image mime types. E.g. "jpg", "jpeg", "png", "gif", etc
         /// </summary>
         public static List<string> GetImageExtensions()
         {
@@ -1305,7 +1305,7 @@ namespace SimpleMime
         }
 
         /// <summary>
-        /// Returns all extensions (not including period) for video mime types.
+        /// Returns all extensions (not including period) for video mime types. E.g. "mp4", "avi", "webm", etc
         /// </summary>
         public static List<string> GetVideoExtensions()
         {
