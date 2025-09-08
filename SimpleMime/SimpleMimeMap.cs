@@ -1,8 +1,22 @@
 namespace SimpleMime
 {
+    /// <summary>
+    /// Utilities for mapping between file extensions and mime types
+    /// </summary>
     public static class SimpleMimeMap
     {
+        /// <summary>
+        /// Generic mime type if we didn't find an actual one
+        /// </summary>
         private static readonly string defaultMimeType = "application/octet-stream";
+
+        /// <summary>
+        /// For some file extensions the alphabetically first mime type might not be what users expect; this allows overriding what is returned for a single type
+        /// </summary>
+        private static readonly Dictionary<string, string> mimeTypeOverrides = new()
+        {
+            { "mp4", "video/mp4" }
+        };
 
         /// <summary>
         /// Mapping from file extensions (e.g. "jpg") to mime types (e.g. "image/jpeg")
@@ -1239,12 +1253,14 @@ namespace SimpleMime
         };
 
         /// <summary>
-        /// Returns the alphabetical first mime type for the provided extension, e.g. "image/jpeg"
+        /// Returns the a mime type for the provided extension, e.g. "image/jpeg".
+        /// This is usually the alphabetically first mime type, but might be overridden (e.g. for mp4)
         /// </summary>
         public static string GetMimeType(string filename)
         {
             var ext = GetExt(filename);
             if (ext == null) return defaultMimeType;
+            if (mimeTypeOverrides.TryGetValue(ext, out var type)) return type;
             return MimeTypesByExtension.TryGetValue(ext, out var mimeTypes) ? mimeTypes.First() : defaultMimeType;
         }
         /// <summary>
